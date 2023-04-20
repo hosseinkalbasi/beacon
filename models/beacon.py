@@ -14,6 +14,10 @@ class BeaconData(BaseModel):
     page_end: Optional[datetime]
     events: Optional[List[EventData]]
 
+    @property
+    def page_location_base_url(self):
+        return self.page_location.split("?")[0]
+
     class Config:
         schema_extra = {
             "example": {
